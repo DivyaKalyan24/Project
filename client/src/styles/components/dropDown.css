@@ -1,0 +1,29 @@
+
+.infoForm > div {
+    margin: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.infoForm div label{
+    margin-bottom: 5px;
+    color: #000;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.infoForm div select{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.infoForm div input, .infoForm div select{
+    font-size: 14px;
+    width: 300px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.infoForm div input:focus, .infoForm div select:focus{
+    outline: 2px solid #473AC5;
+}

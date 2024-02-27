@@ -1,0 +1,44 @@
+body{
+    /* background: none; */
+    /* color: #FFF; */
+}
+
+#errorPage{
+    width: 100%;
+    height: calc(100% - 72px);  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#errorPage h1{
+    line-height: 12rem;
+    font-size: 13rem;
+    font-weight: 700;
+}
+#errorPage h2{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#errorPage p{
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-style: italic;
+}
+
+#errorPage a{
+    margin-top: 5rem;
+    background-color: #473AC5;
+    color: #FFF;
+    padding: 1rem 3rem;
+    border: 1px solid transparent;
+}
+
+#errorPage a:hover{
+    background-color: #FFF;
+    color: #473AC5;
+    border: 1px solid #473AC5;
+    transition: all 0.3s;
+}

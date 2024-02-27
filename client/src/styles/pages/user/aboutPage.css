@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#aboutContainer{
+    width: 100%;
+    height: calc(100% - 74.4px);
+    /* color: #000; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #FFF;
+
+    background-image: url('../../../assets/bg-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#aboutContainer #aboutUsContainer{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+#aboutContainer #aboutUsContainer h2{
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 10px;
+}
+
+#aboutContainer #aboutUsContainer p{
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    color: #FFFB;
+}
+
+#aboutContainer #aboutUsContainer p b{
+    color: #FFF;
+}
+
+#aboutContainer .othersContainer{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    gap: 5%;
+}
+
+#aboutContainer .othersContainer div{
+    width: 100%;
+
+}
+
+#aboutContainer .othersContainer div h3{
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+#aboutContainer .othersContainer div p{
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    color: #FFFB;
+}
