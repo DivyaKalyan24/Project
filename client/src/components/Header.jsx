@@ -8,7 +8,7 @@ import LOGO_URL from '../assets/logo.gif'
 import avatar from '../assets/avatar.png'
 import { Context } from '..'
 
-const AUTH_URL = 'https://vahann-value-api.vercel.app'
+const AUTH_URL = 'http://127.0.0.1:5500'
 
 
 const HeaderComponent = () => {
@@ -47,6 +47,7 @@ const HeaderComponent = () => {
                 <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/'}>Home</NavLink>
                 <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/about'}>About Us</NavLink>
                 <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/predictor'}>Predictor</NavLink>
+                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/videos'}>Videos</NavLink>
                 <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/contact'}>Contact Us</NavLink>
             </div>
 

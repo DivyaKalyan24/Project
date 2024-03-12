@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#videosPageContainer{
+    width: 100%;
+    height: calc(100% - 74.4px);
+    background-image: url('../../../assets/bg-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#videosPageContainer h2{
+    color: #FFF;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#videosPageContainer #videosContainer{
+    display: grid;
+    width: 80%;
+    height: 100%;
+    background-color: #473AC5;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr); */
+    gap: 20px;
+    margin: 20px;
+    flex-grow: 1;
+
+    padding: 20px;
+
+    overflow-y: scroll;
+    scrollbar-width: 0;
+}
+
+#videosPageContainer #videosContainer::-webkit-scrollbar{
+    width: 5px;
+}
+#videosPageContainer #videosContainer::-webkit-scrollbar-thumb{
+    background-color: #5542ff;
+}
+
+#videosPageContainer #videosContainer iframe{
+    width: 100%;
+    height: 73.2vh;
+}

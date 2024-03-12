@@ -14,7 +14,7 @@ const LoginPage = () => {
 		document.title = 'Login | Vahann Value.'
 	}, [])
 
-	const AUTH_URL = 'https://vahann-value-api.vercel.app'
+	const AUTH_URL = 'http://127.0.0.1:5500'
 
 	const onSubmit = async (e) => {
 		e.preventDefault()

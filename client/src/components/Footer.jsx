@@ -34,6 +34,9 @@ const Footer = () => {
 							<Link to={'/predictor'}>Predictor</Link>
 						</li>
 						<li>
+							<Link to={'/videos'}>Videos</Link>
+						</li>
+						<li>
 							<Link to={'/contact'}>Contact Us</Link>
 						</li>
 					</ul>

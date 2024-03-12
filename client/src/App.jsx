@@ -13,6 +13,7 @@ import ContactPage from './pages/user/ContactPage'
 import HomePage from './pages/user/HomePage'
 import PredictorPage from './pages/user/PredictorPage'
 import ProfilePage from './pages/user/ProfilePage'
+import VideosPage from './pages/user/VideosPage'
 
 import ErrorPage from './pages/error/ErrorPage'
 
@@ -31,12 +32,13 @@ import './styles/pages/user/contactPage.css'
 import './styles/pages/user/homePage.css'
 import './styles/pages/user/predictorPage.css'
 import './styles/pages/user/profilePage.css'
+import './styles/pages/user/videosPage.css'
 
 import './styles/pages/error/errorPage.css'
 import axios from 'axios'
 import { Context } from '.'
 
-const AUTH_URL = 'https://vahann-value-api.vercel.app'
+const AUTH_URL = 'http://127.0.0.1:5500'
 
 export default function App() {
 
@@ -66,6 +68,7 @@ export default function App() {
 				<Route path='/' element={<HomePage />} />
 				<Route path='/about' element={<AboutPage />} />
 				<Route path='/predictor' element={<PredictorPage />} />
+				<Route path='/videos' element={<VideosPage />} />
 				<Route path='/contact' element={<ContactPage />} />
 				<Route path='/profile' element={<ProfilePage />} />
 				<Route path='*' element={<ErrorPage />} />

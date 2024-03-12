@@ -3,7 +3,7 @@ import axios from 'axios'
 import Dropdown from '../../components/Dropdown'
 import Model from '../../components/Modal'
 
-const PREDICTOR_URL = 'https://vahann-value-predictor.vercel.app'
+const PREDICTOR_URL = 'http://127.0.0.1:5000'
 
 const PredictorPage = () => {
 

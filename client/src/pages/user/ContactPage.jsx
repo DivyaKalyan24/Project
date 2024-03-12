@@ -3,7 +3,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { Context } from '../..'
 
-const SERVER_URL = 'https://vahann-value-api.vercel.app'
+const SERVER_URL = 'http://127.0.0.1:5500'
 
 const ContactPage = () => {
 
