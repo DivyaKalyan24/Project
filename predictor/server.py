@@ -6,10 +6,6 @@ from predictor import predictor
 app = Flask(__name__)
 CORS(app, origins='http://localhost:3000', methods=['POST'], supports_credentials=True)
 
-@app.route('/')
-def home():
-    return 'Hello'
-
 @app.route('/fetch-cars', methods=['POST'])
 def fetch_data():
     data = request.json
@@ -20,9 +16,14 @@ def fetch_data():
     fuelType = data['fuelType']
     KMsDriven = data['KMsDriven']
 
-    predictor()
+    try:
 
-    return f'{carCompany}, {carModel}, {yearOfPurchase}, {fuelType}, {KMsDriven}'
+        price = predictor(carCompany, carModel, yearOfPurchase, fuelType, KMsDriven)
+        return (price)
+    
+    except Exception as e:
+        return e
+
 
 if __name__ == "__main__":
     app.run(debug=True)

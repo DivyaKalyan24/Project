@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken"
 
 import User from "../models/User.js"
 
-const JWT_SECRET = 'sdjfhujasfhliarjoieurcainlerusekfhvisuinhurrrbfubyuistio4su9tus48sstvnthnsrufv89ru'
+const JWT_SECRET = process.env.JWT_SECRET
 
 
 const isAuthenticated = async (req, res, next) => {
@@ -18,14 +18,16 @@ const isAuthenticated = async (req, res, next) => {
 
     const user = await User.findById(decoded.id)
 
-    req.user = {
-        id: user._id,
-        email: user.email,
-        firstname: user.firstname,
-        lastname: user.lastname
+    if(user){
+
+        req.user = {
+            id: user._id,
+            email: user.email,
+            firstname: user.firstname,
+            lastname: user.lastname
+        }
     }
 
     next()
 }
-
 export { isAuthenticated }

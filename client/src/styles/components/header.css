@@ -4,32 +4,54 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #473AC5;
+    background-color: #3e33c4;
     color: #FFF;
     position: sticky;
     top: 0;
     z-index: 9;
 }
 
+nav .logo{
+    width: 87px;
+    height: 42px;
+}
+
 nav .userPages{
     display: flex;
 }
 
-nav .userPages a, nav .authPages a{
+nav .profileLinks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .userPages a, nav .authPages a, nav .profileLinks a, nav .profileLinks button{
     padding: 0.6rem 1.2rem;
     margin: 0 0.3rem;
     color: #FFF;
     border-radius: 3px;
     border: 1px solid transparent;
+    background-color: transparent;
+    cursor: pointer;
 }
 
-nav .userPages a:hover, nav .userPages a.active, nav .authPages a:first-child{
+nav .profileLinks a:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 100vh;
+    /* margin: 0.3rem; */
+}
+
+nav .userPages a:hover, nav .profileLinks a:hover, nav .profileLinks button:hover, nav .userPages a.active, nav .authPages a:first-child{
     background-color: #ffffff1f;
     transition: background-color 0.3s ease-in-out;
 }
 
 nav a img{
-    width: 36px;
+    width: 32px;
     aspect-ratio: 1;
 }
 

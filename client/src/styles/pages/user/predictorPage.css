@@ -1,0 +1,83 @@
+#servicesContainer{
+    width: 100%;
+    height: calc(100% - 74.4px);
+    background-image: url('../../../assets/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+}
+
+#title{
+    color: #473AC5;
+    margin-top: 10px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.infoForm{
+    width: 700px;
+    border-radius: 8px;
+    box-shadow: 0px 17px 17px -10px rgba(0, 0, 0, 0.4);
+    background-color: #FFF7;
+    padding: 0 100px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.infoForm .formBtns button{
+    width: 50%;
+    color: white;
+    background-color: #473AC5;
+    padding: 10px 18px;
+    border-radius: 4px;
+    display: block;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 auto;
+    box-shadow: 0px 17px 17px -10px rgba(0, 0, 0, 0.4);
+}
+
+.infoForm .formBtns{
+    gap: 40px;
+}
+
+.infoForm #resetBtn{
+    color: black;
+    background-color: #e0e1e2;
+    
+}
+.infoForm #resetBtn:hover{
+    background-color: #d4d4d4;
+    transition: background-color 0.3s;
+}
+
+.infoForm #submitBtn:hover{
+    background-color: #5d52cc;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 500px){
+    #title{
+        font-size: 1.5rem;
+    }
+}

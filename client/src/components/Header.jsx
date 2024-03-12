@@ -1,30 +1,63 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { IoLogOut } from "react-icons/io5";
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import LOGO_URL from '../assets/logo.gif'
 
 import avatar from '../assets/avatar.png'
 import { Context } from '..'
 
+const AUTH_URL = 'https://vahann-value-api.vercel.app'
+
+
 const HeaderComponent = () => {
 
-    const {isAuthenticated} = useContext(Context)
+    const { isAuthenticated, setIsAuthenticated } = useContext(Context)
+
+    const logout = async () => {
+        try {
+
+            const result = await axios.get(`${AUTH_URL}/api/v1/logout`,
+                {
+                    withCredentials: true
+                }
+            )
+
+            console.log(result)
+            if (result.data.status === 'Success') {
+                toast.success(result.data.message)
+                console.log(isAuthenticated)
+                setIsAuthenticated(false)
+            }
+        }
+        catch (err) {
+            toast.error(err.message)
+        }
+    }
 
     return (
         <nav className='userSelectNone'>
-            <h1>Car Price Predictor.</h1>
+
+            <Link to={'/'}  className='logo' >
+                <img src={LOGO_URL} alt="logo" className='logo' />
+            </Link>
 
             <div className='userPages'>
                 <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/'}>Home</NavLink>
-                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/about'}>About</NavLink>
-                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/services'}>Services</NavLink>
-                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/contact'}>Contact</NavLink>
+                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/about'}>About Us</NavLink>
+                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/predictor'}>Predictor</NavLink>
+                <NavLink className={({ isActive }) => { return (isActive ? 'active' : '') }} to={'/contact'}>Contact Us</NavLink>
             </div>
 
             {
                 isAuthenticated ?
-                    <div>
+                    <div className='profileLinks'>
                         <Link to={'/profile'}>
                             <img src={avatar} alt="" />
                         </Link>
+                        <button onClick={logout}><IoLogOut /></button>
+
                     </div>
                     :
                     <div className='authPages'>
@@ -50,12 +83,12 @@ const Header = () => {
         if (location === '/login' || location === '/register') {
             setShowHeader(false)
         }
-        else{
+        else {
             setShowHeader(true)
         }
 
     }, [location])
-    
+
     return (
         <>{showHeader ? <HeaderComponent /> : ''}</>
     )

@@ -4,7 +4,7 @@ const AboutPage = () => {
         <div id='aboutContainer'>
             <div id='aboutUsContainer'>
                 <h2>About Us</h2>
-                <p>The <b>Car Prediction System.</b> Web App offers accurate price estimates for used cars based on varied factors like make, model ,age, mileage, market trends etc bridging info gaps for buyers and sellers, promoting transparency, fair pricing, and informed choices in the market.</p>
+                <p>The <b>Vahann Value.</b> Web App offers accurate price estimates for used cars based on varied factors like make, model ,age, mileage, market trends etc bridging info gaps for buyers and sellers, promoting transparency, fair pricing, and informed choices in the market.</p>
             </div>
             <div className='othersContainer'>
                 <div>

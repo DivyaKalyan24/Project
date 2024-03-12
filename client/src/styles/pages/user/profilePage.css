@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#profilePageContainer{
+    width: 100%;
+    height: calc(100% - 74.4px);
+    /* color: #000; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    color: #FFF;
+
+    background-image: url('../../../assets/bg-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#profilePageContainer h2{
+    color: #473AC5;
+    /* margin-top: 10px; */
+    font-size: 3rem;
+    text-align: center;
+}
+
+#profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}

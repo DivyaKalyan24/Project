@@ -1,9 +1,26 @@
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+import nodemailer from 'nodemailer'
+import path from 'path'
 
 import User from "../models/User.js"
 
-const JWT_SECRET = 'sdjfhujasfhliarjoieurcainlerusekfhvisuinhurrrbfubyuistio4su9tus48sstvnthnsrufv89ru'
+
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const JWT_SECRET = process.env.JWT_SECRET
+
+const getHome = (req, res) => {
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+    res.setHeader('Expires', '-1')
+    res.setHeader('Pragma', 'no-cache')
+
+    console.log('/views/home.html')
+
+    return res.sendFile(path.resolve('../server/views/home.html'));
+}
 
 const postLoginController = async (req, res) => {
     var { email } = req.body
@@ -93,7 +110,7 @@ const postGetUser = async (req, res) => {
     res.setHeader('Expires', '-1')
     res.setHeader('Pragma', 'no-cache')
 
-    res.status(200).json({status: 'Success', data: req.user})
+    res.status(200).json({ status: 'Success', data: req.user })
 
 }
 
@@ -121,6 +138,77 @@ const postEmailAvailability = async (req, res) => {
     }
 }
 
+const postSendEmail = (req, res) => {
+    const { fullname, email, issue } = req.body
+    const USER = process.env.NODEMAILER_USER
+    const PASSWORD = process.env.NODEMAILER_PASSWORD
+
+    const transport = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        auth: {
+            user: USER,
+            pass: PASSWORD
+        }
+    })
+
+    const mailOptions = {
+        from: email,
+        to: USER,
+        subject: `Issue from ${fullname} <${email}>`,
+        html:
+            `
+                <div>
+                    <h1>Full Name :- ${fullname}<h1>
+                    <h1>Email :- ${email}<h1>
+                    <span style='font-size: 16px; font-weight: 400'>${issue}</span>
+                </div>
+            `
+    }
+
+    transport.sendMail(mailOptions, (err, info) => {
+        if (err) {
+            return res.status(500).json({ status: 'Error', error: 'Error while sending the Issue.' })
+            toast
+        }
+        return res.status(200).json({ status: 'Success', message: 'Issue reported Successfully.' })
+    })
+}
+
+const postUpdateProfile = async (req, res) => {
+
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+    res.setHeader('Expires', '-1')
+    res.setHeader('Pragma', 'no-cache')
+
+    const { firstname, lastname } = req.body
+
+    const { token } = req.cookies
+
+    const user = jwt.verify(token, JWT_SECRET)
+
+    const _id = user.id
+
+    try {
+        await User.updateOne((
+            { _id },
+            {
+                $set: { firstname, lastname }
+            }
+        ))
+
+        return res.status(200).json({
+            status: 'Success', message: 'Profile Updated Successfully'
+        })
+    }
+    catch (err) {
+        return res.status(500).json({
+            status: 'Error', message: err.message
+        })
+    }
+}
+
 const logoutController = (req, res) => {
     res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate')
     res.setHeader('Expires', '-1')
@@ -136,4 +224,4 @@ const logoutController = (req, res) => {
 
 }
 
-export { postLoginController, postRegisterController, postGetUser, postEmailAvailability, logoutController }
+export { getHome, postLoginController, postRegisterController, postGetUser, postEmailAvailability, postSendEmail, postUpdateProfile, logoutController }

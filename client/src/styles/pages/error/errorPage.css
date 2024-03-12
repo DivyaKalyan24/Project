@@ -1,8 +1,3 @@
-body{
-    /* background: none; */
-    /* color: #FFF; */
-}
-
 #errorPage{
     width: 100%;
     height: calc(100% - 72px);  

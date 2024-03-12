@@ -6,24 +6,31 @@
     justify-content: space-between;
 }
 .infoForm div label{
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    height: 100%;
     color: #000;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     font-weight: 600;
     font-size: 20px;
+    cursor: pointer;
 }
+.infoForm div#issueContainer{
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
 .infoForm div select{
     font-weight: 600;
     cursor: pointer;
 }
 
-.infoForm div input, .infoForm div select{
+.infoForm div textarea, .infoForm div input, .infoForm div select{
     font-size: 14px;
     width: 300px;
     padding: 10px 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-.infoForm div input:focus, .infoForm div select:focus{
+.infoForm div textarea:focus, .infoForm div input:focus, .infoForm div select:focus{
     outline: 2px solid #473AC5;
 }
